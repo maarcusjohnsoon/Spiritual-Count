@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dhikr Tracker - Spiritual Count</title>
+    <meta name="description" content="Track your daily dhikr and prayers with customizable counters">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="site-header">
+        <div class="container">
+            <div class="brand">
+                <h1 class="brand-name"><a href="index.html">Spiritual Count</a></h1>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="tracker.html" class="nav-link active">Tracker</a></li>
+                    <li><a href="themes.html" class="nav-link">Themes</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>Dhikr Tracker</h1>
+                <p>Focus on remembrance while we handle the counting</p>
+            </div>
+        </section>
+
+        <section class="tracker-controls-section">
+            <div class="container">
+                <div class="control-buttons">
+                    <button class="add-tracker-btn" id="add-tracker">+ Add Tracker</button>
+                    <button class="export-btn" id="export-data">Export Data</button>
+                    <button class="import-btn" id="import-data">Import Data</button>
+                    <input type="file" id="import-file" accept=".json" style="display: none;">
+                    <button class="help-btn" id="help-btn">Keyboard Shortcuts</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="trackers-section">
+            <div class="container">
+                <div class="trackers-grid" id="trackers-grid">
+                    <!-- Trackers will be dynamically loaded here -->
+                </div>
+            </div>
+        </section>
+
+        <section class="instructions">
+            <div class="container">
+                <div class="instruction-card">
+                    <h3>Usage Instructions</h3>
+                    <ul>
+                        <li><strong>Single Click:</strong> Increment by 1</li>
+                        <li><strong>Long Press:</strong> Increment by 10 (hold for 1 second)</li>
+                        <li><strong>Keyboard:</strong> Press 'T' to focus tracker, Space/Enter to increment</li>
+                        <li><strong>Settings:</strong> Click the gear icon to rename trackers</li>
+                        <li><strong>Vibration:</strong> Toggle haptic feedback for each count</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal" id="add-tracker-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Add New Tracker</h3>
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <label for="tracker-name">Tracker Name:</label>
+                <input type="text" id="tracker-name" placeholder="e.g., Morning Dhikr">
+                <label for="tracker-phrase">Dhikr Phrase:</label>
+                <select id="tracker-phrase">
+                    <option value="SubhanAllah">SubhanAllah</option>
+                    <option value="Alhamdulillah">Alhamdulillah</option>
+                    <option value="Allahu Akbar">Allahu Akbar</option>
+                    <option value="La ilaha illa Allah">La ilaha illa Allah</option>
+                    <option value="Astaghfirullah">Astaghfirullah</option>
+                    <option value="Custom">Custom Phrase</option>
+                </select>
+                <input type="text" id="custom-phrase" placeholder="Enter custom phrase" style="display: none;">
+            </div>
+            <div class="modal-footer">
+                <button class="btn secondary" id="cancel-add">Cancel</button>
+                <button class="btn primary" id="confirm-add">Add Tracker</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="edit-tracker-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Edit Tracker</h3>
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <label for="edit-tracker-name">Tracker Name:</label>
+                <input type="text" id="edit-tracker-name">
+                <label for="edit-tracker-phrase">Dhikr Phrase:</label>
+                <input type="text" id="edit-tracker-phrase">
+                <div class="checkbox-group">
+                    <input type="checkbox" id="edit-vibration">
+                    <label for="edit-vibration">Enable vibration feedback</label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn danger" id="delete-tracker">Delete</button>
+                <button class="btn secondary" id="cancel-edit">Cancel</button>
+                <button class="btn primary" id="confirm-edit">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="help-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Keyboard Shortcuts</h3>
+                <button class="modal-close" aria-label="Close modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="shortcuts-list">
+                    <div class="shortcut-item">
+                        <kbd>T</kbd>
+                        <span>Focus first tracker</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>Space</kbd> / <kbd>Enter</kbd>
+                        <span>Increment focused tracker</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>Tab</kbd>
+                        <span>Move between trackers</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>R</kbd>
+                        <span>Reset focused tracker</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>A</kbd>
+                        <span>Add new tracker</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>E</kbd>
+                        <span>Export data</span>
+                    </div>
+                    <div class="shortcut-item">
+                        <kbd>Esc</kbd>
+                        <span>Close modals</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn primary" id="close-help">Got it</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Spiritual Count. All rights reserved.</p>
+                    <p>Contact: <a href="mailto:hello@spiritualcount.com">hello@spiritualcount.com</a></p>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html#privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="offline-banner" id="offline-banner">
+        <div class="container">
+            <p>You're offline. Data will be saved locally and synced when you're back online.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
