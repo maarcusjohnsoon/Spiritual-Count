@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Themes - Spiritual Count</title>
+    <meta name="description" content="Customize your spiritual tracking experience with beautiful themes">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
+    <header class="site-header">
+        <div class="container">
+            <div class="brand">
+                <h1 class="brand-name"><a href="index.html">Spiritual Count</a></h1>
+            </div>
+            <nav class="main-nav">
+                <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
+                    <span class="hamburger"></span>
+                </button>
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="nav-link">Home</a></li>
+                    <li><a href="about.html" class="nav-link">About</a></li>
+                    <li><a href="tracker.html" class="nav-link">Tracker</a></li>
+                    <li><a href="themes.html" class="nav-link active">Themes</a></li>
+                    <li><a href="contact.html" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <section class="page-header">
+            <div class="container">
+                <h1>Customize Your Experience</h1>
+                <p>Choose a theme that enhances your spiritual practice</p>
+            </div>
+        </section>
+
+        <section class="themes-section">
+            <div class="container">
+                <div class="themes-grid">
+                    <div class="theme-card" data-theme="light">
+                        <div class="theme-preview light-preview">
+                            <div class="preview-header"></div>
+                            <div class="preview-content">
+                                <div class="preview-card">
+                                    <div class="preview-title"></div>
+                                    <div class="preview-count">99</div>
+                                    <div class="preview-button"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="theme-info">
+                            <h3>Light Theme</h3>
+                            <p>Clean and bright for daytime use</p>
+                            <button class="select-theme-btn" data-theme="light">Select</button>
+                        </div>
+                    </div>
+
+                    <div class="theme-card" data-theme="dark">
+                        <div class="theme-preview dark-preview">
+                            <div class="preview-header"></div>
+                            <div class="preview-content">
+                                <div class="preview-card">
+                                    <div class="preview-title"></div>
+                                    <div class="preview-count">99</div>
+                                    <div class="preview-button"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="theme-info">
+                            <h3>Dark Theme</h3>
+                            <p>Easy on the eyes for evening dhikr</p>
+                            <button class="select-theme-btn" data-theme="dark">Select</button>
+                        </div>
+                    </div>
+
+                    <div class="theme-card" data-theme="oasis">
+                        <div class="theme-preview oasis-preview">
+                            <div class="preview-header"></div>
+                            <div class="preview-content">
+                                <div class="preview-card">
+                                    <div class="preview-title"></div>
+                                    <div class="preview-count">99</div>
+                                    <div class="preview-button"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="theme-info">
+                            <h3>Oasis Theme</h3>
+                            <p>Warm gradients inspired by desert tranquility</p>
+                            <button class="select-theme-btn" data-theme="oasis">Select</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="customization-section">
+            <div class="container">
+                <div class="customization-card reveal-on-scroll">
+                    <h2>Color Customization</h2>
+                    <p>Fine-tune your accent colors</p>
+                    
+                    <div class="color-controls">
+                        <div class="control-group">
+                            <label for="accent-hue">Accent Hue</label>
+                            <input type="range" id="accent-hue" min="0" max="360" value="210">
+                            <span class="control-value" id="hue-value">210°</span>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="accent-saturation">Saturation</label>
+                            <input type="range" id="accent-saturation" min="0" max="100" value="80">
+                            <span class="control-value" id="saturation-value">80%</span>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="accent-lightness">Lightness</label>
+                            <input type="range" id="accent-lightness" min="20" max="80" value="50">
+                            <span class="control-value" id="lightness-value">50%</span>
+                        </div>
+                    </div>
+                    
+                    <div class="color-preview">
+                        <div class="color-sample" id="color-sample"></div>
+                        <button class="btn primary" id="apply-custom-colors">Apply Colors</button>
+                        <button class="btn secondary" id="reset-colors">Reset to Default</button>
+                    </div>
+                </div>
+
+                <div class="accessibility-card reveal-on-scroll">
+                    <h2>Accessibility Check</h2>
+                    <p>Ensuring your theme meets accessibility standards</p>
+                    
+                    <div class="contrast-check">
+                        <div class="contrast-result" id="heading-contrast">
+                            <span class="contrast-label">Heading Text</span>
+                            <span class="contrast-ratio" id="heading-ratio">4.5:1</span>
+                            <span class="contrast-status pass" id="heading-status">PASS</span>
+                        </div>
+                        
+                        <div class="contrast-result" id="body-contrast">
+                            <span class="contrast-label">Body Text</span>
+                            <span class="contrast-ratio" id="body-ratio">4.5:1</span>
+                            <span class="contrast-status pass" id="body-status">PASS</span>
+                        </div>
+                        
+                        <div class="contrast-result" id="accent-contrast">
+                            <span class="contrast-label">Accent Color</span>
+                            <span class="contrast-ratio" id="accent-ratio">4.5:1</span>
+                            <span class="contrast-status pass" id="accent-status">PASS</span>
+                        </div>
+                    </div>
+                    
+                    <div class="accessibility-info">
+                        <p><strong>WCAG AA Standard:</strong> 4.5:1 ratio for normal text, 3:1 for large text</p>
+                        <p><strong>WCAG AAA Standard:</strong> 7:1 ratio for normal text, 4.5:1 for large text</p>
+                    </div>
+                </div>
+
+                <div class="font-settings-card reveal-on-scroll">
+                    <h2>Typography Settings</h2>
+                    <p>Adjust text size for better readability</p>
+                    
+                    <div class="font-controls">
+                        <div class="control-group">
+                            <label for="font-size">Base Font Size</label>
+                            <input type="range" id="font-size" min="14" max="24" value="16">
+                            <span class="control-value" id="font-size-value">16px</span>
+                        </div>
+                        
+                        <div class="control-group">
+                            <label for="line-height">Line Height</label>
+                            <input type="range" id="line-height" min="1.2" max="2.0" step="0.1" value="1.6">
+                            <span class="control-value" id="line-height-value">1.6</span>
+                        </div>
+                    </div>
+                    
+                    <div class="typography-preview">
+                        <h3 id="sample-heading">Sample Heading</h3>
+                        <p id="sample-text">This is sample body text to preview your typography settings. The quick brown fox jumps over the lazy dog.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-info">
+                    <p>&copy; 2025 Spiritual Count. All rights reserved.</p>
+                    <p>Contact: <a href="mailto:hello@spiritualcount.com">hello@spiritualcount.com</a></p>
+                </div>
+                <div class="footer-links">
+                    <a href="about.html#privacy">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="offline-banner" id="offline-banner">
+        <div class="container">
+            <p>You're offline. Data will be saved locally and synced when you're back online.</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
